@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.pnp.git.util</groupId>
-    <artifactId>GIT_Tag</artifactId>
+    <artifactId>git-tag</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
     <name>GIT_Tag</name>
@@ -17,8 +17,8 @@
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
-            <version>2.0</version>
-            <scope>compile</scope>
+            <version>2.1</version>
+            <scope>provided</scope>
         </dependency>
         
         <dependency>
@@ -33,16 +33,26 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>3.1</version>
                 <configuration>
-                    <debug>false</debug>
+                    <verbose>true</verbose>
+                    <debug>true</debug>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/META-INF</directory>
+                <includes>
+                    <include>**/*.tld</include>
+                </includes>
+                <targetPath>META-INF</targetPath>
+            </resource>
+        </resources>
     </build>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-   
 </project>
